@@ -48,6 +48,7 @@ class ImageCollectionViewController: UIViewController, UICollectionViewDataSourc
         collectionView.registerNib(nib, forCellWithReuseIdentifier: Collection_Cell_Reuse_Identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
         photos.removeAll()
         NetworkManager.getPhotosinBackground(url: Constants.jsonPlaceHolderPhotosURL) {[weak self] (photos) -> Void in
             if let this = self{
